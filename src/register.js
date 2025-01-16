@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import "./register.css"
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
 
+    const navigate = useNavigate();
    
     const [ user, setUser] = useState({
         name: "",
@@ -43,6 +45,10 @@ const Register = () => {
             <input type="password" name="password" value={user.password} placeholder="Your Password" onChange={ handleChange }></input>
             <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Password" onChange={ handleChange }></input>
             <div className="button" onClick={register} >Register</div>
+            <div>if already registered  click below to login</div>
+            <div className="button" onClick={() => navigate("/login")}>
+              Login
+            </div>
             
         </div>
     )
